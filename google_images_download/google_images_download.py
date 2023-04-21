@@ -403,8 +403,9 @@ class googleimagesdownload:
         data = object[1]
         main = data[3]
         info = data[23]
-        if info is None:
-            info = data[22]
+        for item in data:
+            if type(item) == dict:
+                info = item
         formatted_object = {}
         try:
             formatted_object['image_height'] = main[2]
